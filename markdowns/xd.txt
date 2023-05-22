@@ -1,0 +1,36 @@
+# Mi Documento en Markdown
+
+Este es un ejemplo de un documento en Markdown. Aquí puedes agregar contenido, formato y elementos como encabezados, listas, enlaces e imágenes.
+
+## Encabezados
+
+Los encabezados en Markdown se crean utilizando el símbolo de numeral (#). Cuantos más símbolos de numeral uses, más pequeño será el encabezado. Por ejemplo:
+
+### Encabezado de tercer nivel
+#### Encabezado de cuarto nivel
+
+## Listas
+
+Puedes crear listas ordenadas y no ordenadas en Markdown. Aquí tienes ejemplos de ambas:
+
+1. Lista ordenada
+2. Segundo elemento
+3. Tercer elemento
+
+- Lista no ordenada
+- Otro elemento
+- Otro elemento más
+
+## Enlaces e imágenes
+
+Puedes insertar enlaces utilizando el siguiente formato: [Texto del enlace](URL). Por ejemplo: [Google](https://www.google.com).
+
+También puedes insertar imágenes de la siguiente manera: ![Texto alternativo](URL de la imagen). Por ejemplo: ![Logo de Markdown](https://markdown-here.com/img/icon256.png)
+
+## Código
+
+Puedes resaltar código en línea utilizando comillas invertidas (`) alrededor del código. Por ejemplo, `print("Hola, mundo")`.
+
+Si tienes un bloque de código más largo, puedes usar tres comillas invertidas para iniciar y finalizar el bloque. Por ejemplo:
+
+```python
