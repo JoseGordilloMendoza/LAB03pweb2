@@ -26,3 +26,12 @@ app.get('/archivos', (request, response) => {
     console.log(typeof archivosJSON);
   });
 });
+
+//Este evento recibira el nombre de un archivo y debera devolver el contenido del archivo transformado a html a traves de un json
+app.get('/html', (request, response) => {
+  let nombreArchivo = request.query.nombre;
+  console.log(`pidieron: ${nombreArchivo}`);
+  //aqui deberia usar en nombre para buscar el archivo y transformarlo
+  //y deberia enviar el html y no solo el nombre :v
+  response.json({ estado: `efectivamente pediste: ${nombreArchivo}` });
+});
