@@ -97,8 +97,9 @@
     // Manejar el clic en un archivo Markdown de la lista
     const fileList = document.getElementById('file-list');
     fileList.addEventListener('click', function (event) {
+        console.log("funciona :V");
       const filename = event.target.textContent;
-      sendGetRequest(`/files/${filename}/html`, function (response) {
+      sendGetRequest(`/gethtml?nombre=${filename}`, function (response) {
         showMarkdownContent(response.htmlContent);
       });
     });
