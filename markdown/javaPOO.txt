@@ -1,0 +1,32 @@
+# Programación Orientada a Objetos (POO) en Java
+
+La Programación Orientada a Objetos (POO) es un paradigma de programación que se basa en el concepto de objetos, los cuales son instancias de clases que combinan datos y métodos relacionados en una sola unidad. Java es un lenguaje de programación que se adhiere fuertemente al paradigma de la POO.
+
+## Clases y Objetos
+
+En POO, una clase es una plantilla que define las propiedades y comportamientos que tendrán los objetos creados a partir de ella. Los objetos son las instancias específicas de una clase, y representan entidades individuales con su propio estado y comportamiento.
+
+### Ejemplo:
+
+```java
+public class Perro {
+    private String nombre;
+    private String raza;
+    
+    public Perro(String nombre, String raza) {
+        this.nombre = nombre;
+        this.raza = raza;
+    }
+    
+    public void ladrar() {
+        System.out.println(nombre + " está ladrando.");
+    }
+}
+
+// Crear objetos de la clase Perro
+Perro perro1 = new Perro("Max", "Labrador");
+Perro perro2 = new Perro("Luna", "Chihuahua");
+
+// Acceder a las propiedades y métodos de los objetos
+System.out.println(perro1.getNombre());  // Output: Max
+perro2.ladrar();  // Output: Luna está ladrando.
