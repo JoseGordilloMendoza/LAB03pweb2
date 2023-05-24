@@ -1,46 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const express = require('express');
-const app = express();
-app.use(express.static('pub'));
-
-app.listen(3000, () => {
-  console.log('Escuchando en: http://localhost:3000');
-});
-
-app.get('/', (request, response) => {
-  response.sendFile(path.resolve(__dirname, 'index.html'));
-});
-
-const directorio = path.resolve(__dirname, 'markdowns');
-
-app.get('/archivos', (request, response) => {
-  let archivosJSON;
-  fs.readdir(directorio, (error, archivos) => {
-    console.log(archivos);
-    archivosJSON = {
-      archivos: archivos,
-    };
-
-    response.json(archivosJSON);
-    console.log(typeof archivosJSON);
-  });
-});
-
-//Este evento recibira el nombre de un archivo y debera devolver el contenido del archivo transformado a html a traves de un json
-app.get('/html', (request, response) => {
-  let nombreArchivo = request.query.nombre;
-  console.log(`pidieron: ${nombreArchivo}`);
-  //aqui deberia usar en nombre para buscar el archivo y transformarlo
-  //y deberia enviar el html y no solo el nombre :v
-  response.json({ estado: `efectivamente pediste: ${nombreArchivo}` });
-});
-
-<!-- A VER SI PRUEBAN ESTE CODIGO---------------------------------XDDD
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const marked = require('marked');
+const MarkdownIt = require('markdown-it'),
+    md = new MarkdownIt();
 
 const app = express();
 const PORT = 3000;
@@ -64,16 +26,17 @@ app.get('/files', (req, res) => {
 });
 
 // Ruta para obtener el contenido HTML de un archivo Markdown
-app.get('/files/:filename/html', (req, res) => {
-  const { filename } = req.params;
+app.get('/gethtml', (req, res) => {
+    console.log("se activa la peticion");
+  const filename = req.query.nombre;
   const filePath = __dirname + '/markdown/' + filename;
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
       res.status(500).json({ error: 'Error al leer el archivo Markdown' });
     } else {
-      const htmlContent = marked(data);
-      res.json({ htmlContent });
+      const htmlContent = md.render(data);
+      res.json({ htmlContent: htmlContent });
     }
   });
 });
@@ -96,4 +59,3 @@ app.post('/files', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
--->
